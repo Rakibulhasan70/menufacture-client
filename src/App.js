@@ -8,6 +8,7 @@ import Footer from './Pages/Shared/Footer';
 import Purches from './Pages/Home/Purches';
 import NotFound from './Pages/Shared/NotFound';
 import RequireAuth from './Pages/Shared/RequireAuth';
+import Portfolio from './Pages/Home/Portfolio';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/portfolio' element={<Portfolio></Portfolio>}></Route>
         <Route path='/purchase' element={<RequireAuth>
           <Purches></Purches>
         </RequireAuth>}></Route>

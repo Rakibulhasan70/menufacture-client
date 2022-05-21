@@ -12,11 +12,10 @@ const Part = (props) => {
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <img src={img} alt="" />
-                    <p>{_id}</p>
                     <h2 class="card-title">Name: {name}</h2>
                     <p>Description: {description}</p>
-                    <p>Minimum-Quantity: ${minimunOrder}</p>
-                    <p>Avaliable-Quantity: ${availableOrder}</p>
+                    <p>Minimum-Quantity: {minimunOrder}</p>
+                    <p>Avaliable-Quantity: {availableOrder}</p>
                     <p>Per Price: ${price}</p>
                     <div class="card-actions justify-center mt-3">
                         <button onClick={handleNavigate} class="btn btn-primary">Buy Now</button>
