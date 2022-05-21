@@ -6,6 +6,8 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
 import Footer from './Pages/Shared/Footer';
 import Purches from './Pages/Home/Purches';
+import NotFound from './Pages/Shared/NotFound';
+import RequireAuth from './Pages/Shared/RequireAuth';
 
 function App() {
   return (
@@ -16,7 +18,10 @@ function App() {
         <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
-        <Route path='/purchase' element={<Purches></Purches>}></Route>
+        <Route path='/purchase' element={<RequireAuth>
+          <Purches></Purches>
+        </RequireAuth>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

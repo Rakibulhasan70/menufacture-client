@@ -11,7 +11,7 @@ const BussinessSummery = () => {
                 <div>
                     <div class="card w-96 bg-base-100 ">
                         <div class="card-body">
-                            <p className='text-5xl text-cyan-500'><BsFillPeopleFill /></p>
+                            <p className='text-5xl text-blue-500'><BsFillPeopleFill /></p>
                             <p className='text-3xl text-purple-500'>1200+</p>
                             <h2 class="text-4xl font-semibold text-cyan-500">Served</h2>
 

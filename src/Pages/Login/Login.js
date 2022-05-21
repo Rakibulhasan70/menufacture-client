@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import login from '../../image/login.png'
 import auth from '../firebase.init';
+import Loading from '../Shared/Loading';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -28,17 +29,25 @@ const Login = () => {
 
     let from = location.state?.from?.pathname || "/"
 
+    if (user || gUser) {
+        navigate(from, { replace: true });
+    }
+
+    if (user || gUser) {
+        navigate('/home')
+    }
+
     //useEffect use korar krn holo rendering warning solution kora. 
     // useEffect(() => {
     //     if (token) {
     //     }
     // }, [token, from, navigate])
 
-    navigate(from, { replace: true });
+
 
 
     if (loading || gLoading) {
-        // return <Loading></Loading>
+        return <Loading></Loading>
     }
 
     if (error || gError) {
