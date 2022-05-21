@@ -14,8 +14,8 @@ const Navbar = () => {
 
     const commonRoute = <>
         <li><Link to='/home'>Home</Link></li>
-        <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/about'>About</Link></li>
+        <li><Link to='/purchase'>purchase</Link></li>
+        <li><Link to='/about'></Link></li>
         {
 
             user ?
