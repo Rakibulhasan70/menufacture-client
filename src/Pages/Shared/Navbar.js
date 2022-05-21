@@ -1,14 +1,33 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, Navigate } from 'react-router-dom';
+import auth from '../firebase.init';
 
 const Navbar = () => {
+    const [user, loading, error] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+        Navigate('/login')
+    };
 
     const commonRoute = <>
         <li><Link to='/home'>Home</Link></li>
         <li><Link to='/appointment'>Appointment</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/register'>Register</Link></li>
         <li><Link to='/about'>About</Link></li>
+        {
+
+            user ?
+
+                <>
+                    <button className='btn btn-ghost lowercase text-xl font-normal' onClick={logout}>Sign-Out</button>
+                    <p className='text-xl bg-base-200 mt-2'>Name:{user?.displayName}</p>
+                </>
+
+                :
+                <li><Link to='/login'>Login</Link></li>
+        }
 
     </>
     return (
@@ -23,7 +42,7 @@ const Navbar = () => {
                             {commonRoute}
                         </ul>
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Parts Manufacture</Link>
+                    <Link to='/home' className="btn btn-ghost normal-case text-xl">SUZUKI Parts Menufacture</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">

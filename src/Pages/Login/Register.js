@@ -28,6 +28,7 @@ const Register = () => {
         // return <Loading></Loading>
     }
 
+
     if (error || gError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>
     }
@@ -37,6 +38,7 @@ const Register = () => {
         await createUserWithEmailAndPassword(data.email, data.password)
         await updateProfile({ displayName: data.name })
         console.log('update done');
+        navigate('/home')
     };
     return (
         <div>
