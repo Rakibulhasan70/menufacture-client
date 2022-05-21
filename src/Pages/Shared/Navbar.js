@@ -42,7 +42,7 @@ const Navbar = () => {
                             {commonRoute}
                         </ul>
                     </div>
-                    <Link to='/home' className="btn btn-ghost normal-case text-xl">SUZUKI Parts Menufacture</Link>
+                    <Link to='/home' className="btn btn-ghost normal-case text-xl">Car Parts Menufacture</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
