@@ -1,6 +1,5 @@
 [
     {
-        "_id": "62891f1631ccd9416ad87538",
         "img": "https://i.ibb.co/KDk6mnk/part1.png",
         "description": "Flexible and best product",
         "name": "Tire",
@@ -9,7 +8,6 @@
         "price": "150"
     },
     {
-        "_id": "62891f16c94baa19e34cbe5f",
         "img": "https://i.ibb.co/KDk6mnk/part1.png",
         "description": "Much Better",
         "name": "Window",
@@ -18,7 +16,6 @@
         "price": "80"
     },
     {
-        "_id": "62891f165ac171e31f2f6155",
         "img": "https://i.ibb.co/KDk6mnk/part1.png",
         "description": "So much comfortable",
         "name": "Stearing",
@@ -27,7 +24,6 @@
         "price": "200"
     },
     {
-        "_id": "62891f161ec302b4bb208748",
         "img": "https://i.ibb.co/KDk6mnk/part1.png",
         "description": "Auto open and close authentic",
         "name": "Roof",
@@ -36,7 +32,6 @@
         "price": "140"
     },
     {
-        "_id": "62891f1690cdb25b5fdda7c5",
         "img": "https://i.ibb.co/KDk6mnk/part1.png",
         "description": "Comfortable and sleepy",
         "name": "Seat",
@@ -45,7 +40,6 @@
         "price": "250"
     },
     {
-        "_id": "62891f16b6d54b23d3911716",
         "img": "https://i.ibb.co/KDk6mnk/part1.png",
         "description": "Heavy light and waterproof",
         "name": "HeadLight",
