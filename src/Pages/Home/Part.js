@@ -2,10 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Part = (props) => {
-    const { _id, name, img, description, minimunOrder, availableOrder, price } = props.part
+    const { _id, name, img, description, order, availableOrder, price } = props.part
     const navigate = useNavigate()
-    const handleNavigate = () => {
-        navigate('/purchase')
+    const handleNavigate = id => {
+        navigate(`/purchase/${id}`)
     }
     return (
         <div>
@@ -14,11 +14,11 @@ const Part = (props) => {
                     <img src={img} alt="" />
                     <h2 class="card-title">Name: {name}</h2>
                     <p>Description: {description}</p>
-                    <p>Minimum-Quantity: {minimunOrder}</p>
+                    <p>Order-Quantity: {order}</p>
                     <p>Avaliable-Quantity: {availableOrder}</p>
                     <p>Per Price: ${price}</p>
                     <div class="card-actions justify-center mt-3">
-                        <button onClick={handleNavigate} class="btn btn-primary">Buy Now</button>
+                        <button onClick={() => handleNavigate(_id)} class="btn btn-primary">Buy Now</button>
                     </div>
                 </div>
             </div>
