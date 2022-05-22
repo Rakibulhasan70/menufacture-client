@@ -9,6 +9,10 @@ import Purches from './Pages/Home/Purches';
 import NotFound from './Pages/Shared/NotFound';
 import RequireAuth from './Pages/Shared/RequireAuth';
 import Portfolio from './Pages/Home/Portfolio';
+import Dasboard from './Pages/Dashboard/Dasboard';
+import MyOrder from './Pages/Dashboard/MyOrder';
+import MyProfile from './Pages/Dashboard/MyProfile';
+import AddReview from './Pages/Dashboard/AddReview';
 
 function App() {
   return (
@@ -23,6 +27,11 @@ function App() {
         <Route path='/purchase/:carId' element={<RequireAuth>
           <Purches></Purches>
         </RequireAuth>}></Route>
+        <Route path='/dashboard' element={<Dasboard></Dasboard>}>
+          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route path='addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+        </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
