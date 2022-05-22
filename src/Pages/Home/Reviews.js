@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Review from './Review';
 
 const Reviews = () => {
@@ -24,6 +25,7 @@ const Reviews = () => {
                     </Review>)
                 }
             </div>
+            <p className='text-center my-5 text-bold text-xl link link-hover'><Link to='/dashboard/addreview'> Go to Add Review</Link></p>
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Portfolio = () => {
             <p className='text-center '>Email : rakibulhasansohag5@gmail.com</p>
             <div>
                 <p className='text-2xl font-semibold'>Education:</p>
-                <p>I am a student of Applied Chemistry in Noakhali College. </p>
+                <p>My name is Rakibul Hasan Sohag. I'm a Student. I'm doing a Bachelor's Degree in Chemistry. But I am also passionate about coding. I almost completed the course of web development from Programming Hero. I'm skilled in HTML, CSS, Bootstrap, Java, API and React. I have almost finished 11+ projects with sincerity. My dream is to become a Senior Web Developer And work with Microsoft company. I believe in hard work. If anyone works hard with patience One-day Insha-Allah he can reach his goal. </p>
             </div>
             <br />
             <p className='text-2xl font-semibold'>Uses of Technology:</p>

@@ -1,8 +1,11 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddReview = () => {
     const { register, handleSubmit } = useForm();
+    const navigate = useNavigate()
     const onSubmit = data => {
 
         const url = 'http://localhost:5000/review';
@@ -16,6 +19,8 @@ const AddReview = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                toast('Review added done')
+                navigate('/home')
             })
 
     }
@@ -27,14 +32,14 @@ const AddReview = () => {
                 <br />
                 <textarea className='mb-3 border-2 w-1/3 rounded-md' placeholder='you description  ' {...register("description")} />
                 <br />
-                <input type="number"
+                <input
                     placeholder="Ratings"
-                    className="input input-bordered w-full max-w-xs"
-                    {...register("number")}
+                    className="mb-3 border-2 w-1/3 rounded-md"
+                    {...register("Ratings")}
                 />
                 <br />
-                {/* <input className='mb-2' placeholder='Photo URL' type="text" /> */}
-
+                <input className='mb-3 border-2 w-1/3 rounded-md' placeholder='img' {...register("img")} />
+                <br />
                 <input className='mb-3 border-2 w-1/3 rounded-md bg-primary py-2' type="submit" value='Add' />
 
             </form>

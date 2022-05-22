@@ -1,10 +1,16 @@
+import axios from 'axios';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import UseCardDetails from '../../Hooks/UseCardDetails';
+import auth from '../firebase.init';
 
 const Purches = () => {
     const { carId } = useParams()
     let [car] = UseCardDetails(carId)
+    const [user] = useAuthState(auth)
+    const email = user?.email
 
 
     const handleIncrease = e => {
@@ -67,34 +73,85 @@ const Purches = () => {
             })
     }
 
+    // form section
+
+    const navigate = useNavigate()
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        const address = e.target.address.value;
+        const name = e.target.name.value
+        const phone = e.target.phone.value
+        const productName = car.name
+        const img = car.img
+        const description = car.description;
+        const order = car.order;
+        const availableOrder = car.availableOrder;
+        const price = car.price
+
+        const product = {
+            address,
+            name,
+            phone,
+            productName,
+            img,
+            description,
+            order,
+            availableOrder,
+            price
+        }
+        console.log(product);
+        const newProduct = {
+            ...product, email: email
+        }
+        await axios.post('http://localhost:5000/addItem', newProduct)
+            .then(function (res) {
+                if (res?.data?.insertedId) {
+                    toast('Purches is done')
+                    navigate('/dashboard')
+                }
+            })
+    }
+
 
     return (
         <div className='px-12'>
             <div class=" bg-base-100 gird grid-cols-1 lg:grid-cols-4 flex justify-center items-center" >
                 <div className=''>
-                    <img className='w-60' src={car.img} alt="" />
-                    <h2 class="card-title">Name: {car.name}</h2>
-                    <p>Description: {car.description}</p>
-                    <h2>Order Quantity : {car.order}</h2>
-                    <h2>Available Quantity: {car.availableOrder}</h2>
-                    <h2>Price: ${car.price}</h2>
-                    <form onSubmit={handleIncrease}>
-                        {/* <input className='border-2 rounded-md' type="text" name="name" id="" placeholder='Name' />
-                        <br />
-                        <input className='border-2 mt-2 rounded-md' type="email" name="email" id="" placeholder='Email' />
-                        <br />
-                        <input className='border-2 mt-2 rounded-md' type="text" name="address" id="" placeholder='Address'
-                        />
-                        <br /> */}
-                        <input className='border-2 mt-2 rounded-md ' type="number" name="number" id="" placeholder='Increase' />
 
-                        <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-3 py-2 rounded text-white' />
+
+                    <form onSubmit={handleSubmit} className='mt-4'>
+                        <img className='w-60' src={car.img} alt="" />
+                        <h2 class="card-title">Name: {car.name}</h2>
+                        <p>Description: {car.description}</p>
+                        <h2>Order Quantity : {car.order}</h2>
+                        <h2>Available Quantity: {car.availableOrder}</h2>
+                        <h2>Price: ${car.price}</h2>
+                        <input className='border-2 rounded-md' value={user?.displayName} disabled type="text" name="name" id="" placeholder='displayName' />
+                        <br />
+                        <input className='border-2 rounded-md mt-2' value={user.email} disabled type="email" name="email" id="" placeholder='Email' />
+                        <br />
+                        <input type="text" name="address" placeholder='Address' className=' border-2 rounded-md mt-2' id="" />
+                        <br />
+                        <input type="number" name="phone" placeholder='Phone ' className=' border-2 rounded-md mt-2' id="" />
+                        <br />
+                        <input type="submit" value="Purches" className='border-2 rounded-md mt-2 w-3/4 ' />
+
+                    </form>
+
+                    <form onSubmit={handleIncrease}>
+                        <input className='border-2 mt-5 rounded-md ' type="number" name="number" id="" placeholder='Order Increase' />
+
+                        <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-3 py-1 rounded text-white' />
                     </form>
 
                     <form onSubmit={handleDecrease}>
-                        <input className='border-2 mt-2 rounded-md' type="number" name="number" id="" placeholder='Decrease' />
-                        <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-3 py-2 rounded text-white ' />
+                        <input className='border-2 mt-1 rounded-md' type="number" name="number" id="" placeholder='Order Decrease' />
+                        <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-3 py-1 rounded text-white ' />
                     </form>
+
+
                 </div>
             </div>
         </div>
