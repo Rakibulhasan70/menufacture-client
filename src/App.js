@@ -16,6 +16,7 @@ import AddReview from './Pages/Dashboard/AddReview';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Payment from './Pages/Dashboard/Payment';
+import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 
 function App() {
   return (
@@ -30,12 +31,17 @@ function App() {
         <Route path='/purchase/:carId' element={<RequireAuth>
           <Purches></Purches>
         </RequireAuth>}></Route>
-        <Route path='/dashboard' element={<Dasboard></Dasboard>}>
+        <Route path='/dashboard' element={<RequireAuth>
+          <Dasboard></Dasboard>
+        </RequireAuth>}>
           <Route index element={<MyOrder></MyOrder>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='updateprofile/:id' element={<UpdateProfile></UpdateProfile>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
         </Route>
+
+
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../firebase.init';
 
@@ -57,17 +58,17 @@ const MyProfile = () => {
             <div className='grid grid-cols-1 lg: grid-cols-2'>
                 <div>
                     <form onSubmit={handleSubmit}>
-                        <input type="text" placeholder="Name" name='name' value={user?.displayName} class="input input-bordered w-full max-w-xs  mt-3" />
+                        <input type="text" placeholder="Name" name='name' disabled value={user?.displayName} class="input input-bordered w-full max-w-xs  mt-3" />
                         <br />
-                        <input type="email" placeholder="Email" name='email' value={user?.email} class="input input-bordered w-full max-w-xs mt-2" />
+                        <input type="email" placeholder="Email" name='email' disabled value={user?.email} class="input input-bordered w-full max-w-xs mt-2" />
                         <br />
-                        <input type="text" placeholder="Education" name='education' class="input input-bordered w-full max-w-xs mt-2" />
+                        <input type="text" placeholder="Education" name='education' required class="input input-bordered w-full max-w-xs mt-2" />
                         <br />
-                        <input type="text" placeholder="City" name='city' class="input input-bordered w-full max-w-xs mt-2" />
+                        <input type="text" placeholder="City" name='city' required class="input input-bordered w-full max-w-xs mt-2" />
                         <br />
-                        <input type="number" placeholder="Phone" name='phone' class="input input-bordered mt-2 w-full max-w-xs" />
+                        <input type="number" placeholder="Phone" name='phone' required class="input input-bordered mt-2 w-full max-w-xs" />
                         <br />
-                        <input type="submit" value='Submit' class="input input-bordered w-full mt-2 max-w-xs text-center bg-success" />
+                        <input type="submit" value='Submit' class="input input-bordered w-full mt-2 max-w-xs text-center bg-success text-lg" />
                     </form>
                 </div>
                 {/* ///////////////////////  show information ///////////////////////// */}
@@ -81,6 +82,8 @@ const MyProfile = () => {
                                     <h2>Education: {profile.education}</h2>
                                     <h2>City: {profile.city}</h2>
                                     <h2>Phone: {profile.phone}</h2>
+                                    <Link to={`/dashboard/updateprofile/${profile._id}`}> <button className='btn btn-accent mt-3'>Update Button</button></Link>
+
                                 </div>
                             </div>
                         </div>)
