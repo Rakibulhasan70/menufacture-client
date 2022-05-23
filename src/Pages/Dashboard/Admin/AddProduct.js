@@ -42,9 +42,8 @@ const AddProduct = () => {
     }
     return (
         <div className='px-12 '>
+            <h2 className='text-2xl my-4'>Please Add A Product</h2>
             <form onSubmit={handleSubmit} className='mt-4'>
-
-
                 <input className='input input-bordered w-full max-w-xs  mt-3' type="photo URL" name="img" id="" placeholder='Image' />
                 <br />
                 <input className='input input-bordered w-full max-w-xs  mt-3' type="text" name="name" id="" placeholder='Name' />
@@ -57,7 +56,7 @@ const AddProduct = () => {
                 <br />
                 <input type="number" name="price" placeholder='Price' className=' input input-bordered w-full max-w-xs  mt-3' id="" />
                 <br />
-                <Link to='/home'> <input type="submit" value="Purches" className='input input-bordered w-full max-w-xs  mt-3 btn btn-success' /></Link>
+                <input type="submit" value="Purches" className='input input-bordered w-full max-w-xs  mt-3 btn btn-success' />
 
             </form>
         </div>

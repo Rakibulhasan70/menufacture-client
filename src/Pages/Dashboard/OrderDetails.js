@@ -24,11 +24,6 @@ const OrderDetails = (props) => {
 
         }
     }
-    // const navigate = useNavigate()
-    // const handleNavigate = () => {
-    //     navigate('/payment')
-    // }
-
     return (
         <div>
             <div class="card w-96 bg-base-100 shadow-xl">
