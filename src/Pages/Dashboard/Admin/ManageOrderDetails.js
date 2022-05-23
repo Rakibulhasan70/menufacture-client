@@ -26,7 +26,7 @@ const ManageOrderDetails = (props) => {
     return (
         <div>
 
-            <div class="card w-96 bg-base-100 shadow-xl">
+            <div class="card w-80 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <img src={img} alt="" />
                     <h2 class="card-title">Name: {name}</h2>

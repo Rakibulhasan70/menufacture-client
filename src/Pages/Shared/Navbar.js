@@ -15,6 +15,7 @@ const Navbar = () => {
     const commonRoute = <>
         <li><NavLink to='/home'>Home</NavLink></li>
         <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
+        <li><NavLink to='/blogs'>Blog</NavLink></li>
         {
             user && <NavLink className='mt-3' to='/dashboard'>DashBoard</NavLink>
         }
