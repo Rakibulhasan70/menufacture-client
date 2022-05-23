@@ -118,9 +118,7 @@ const Purches = () => {
     return (
         <div className='px-12'>
             <div class=" bg-base-100 gird grid-cols-1 lg:grid-cols-4 flex justify-center items-center" >
-                <div className=''>
-
-
+                <div >
                     <form onSubmit={handleSubmit} className='mt-4'>
                         <img className='w-60' src={car.img} alt="" />
                         <h2 class="card-title">Name: {car.name}</h2>
@@ -128,6 +126,7 @@ const Purches = () => {
                         <h2>Order Quantity : {car.order}</h2>
                         <h2>Available Quantity: {car.availableOrder}</h2>
                         <h2>Price: ${car.price}</h2>
+
                         <input className='border-2 rounded-md px-2 py-2 mt-3' value={user?.displayName} disabled type="text" name="name" id="" placeholder='displayName' />
                         <br />
                         <input className='border-2 rounded-md mt-2 px-2 py-2' value={user.email} disabled type="email" name="email" id="" placeholder='Email' />

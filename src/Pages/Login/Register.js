@@ -4,6 +4,7 @@ import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfil
 import auth from '../firebase.init';
 import signup from '../../image/registraton.png'
 import { useForm } from 'react-hook-form';
+import UseToken from '../../Hooks/UseToken';
 
 const Register = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -28,6 +29,10 @@ const Register = () => {
         // return <Loading></Loading>
     }
 
+    const [token] = UseToken(user || gUser)
+    if (token) {
+        navigate('/home')
+    }
 
     if (error || gError || updateError) {
         signInError = <p className='text-red-500'><small>{error?.message || gError?.message || updateError?.message}</small></p>

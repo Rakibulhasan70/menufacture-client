@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import UseToken from '../../Hooks/UseToken';
 import login from '../../image/login.png'
 import auth from '../firebase.init';
 import Loading from '../Shared/Loading';
@@ -36,12 +37,12 @@ const Login = () => {
     if (user || gUser) {
         navigate('/home')
     }
-
-    //useEffect use korar krn holo rendering warning solution kora. 
-    // useEffect(() => {
-    //     if (token) {
-    //     }
-    // }, [token, from, navigate])
+    const [token] = UseToken(user || gUser)
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
 
 
 
