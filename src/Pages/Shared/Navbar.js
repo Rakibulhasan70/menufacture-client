@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, Navigate } from 'react-router-dom';
+import { Link, Navigate, NavLink } from 'react-router-dom';
 import auth from '../firebase.init';
 
 const Navbar = () => {
@@ -13,10 +13,10 @@ const Navbar = () => {
     };
 
     const commonRoute = <>
-        <li><Link to='/home'>Home</Link></li>
-        <li><Link to='/portfolio'>Portfolio</Link></li>
+        <li><NavLink to='/home'>Home</NavLink></li>
+        <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
         {
-            user && <Link className='mt-3' to='/dashboard'>DashBoard</Link>
+            user && <NavLink className='mt-3' to='/dashboard'>DashBoard</NavLink>
         }
 
         {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, Outlet } from 'react-router-dom';
+import { Link, NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../../Hooks/UseAdmin';
 import auth from '../firebase.init';
 
@@ -24,15 +24,15 @@ const Dasboard = () => {
                         admin
                             ?
                             <>
-                                <li><Link to='/dashboard/makeadmin'>Make Admin</Link></li>
-                                <li><Link to='/dashboard/addproduct'>Add Product</Link></li>
-                                <li><Link to='/dashboard/manageproduct'>Manage Product</Link></li>
-                                <li><Link to='/dashboard/manageorder'>Manage Orders</Link></li>
+                                <li><NavLink to='/dashboard/makeadmin'>Make Admin</NavLink></li>
+                                <li><NavLink to='/dashboard/addproduct'>Add Product</NavLink></li>
+                                <li><NavLink to='/dashboard/manageproduct'>Manage Product</NavLink></li>
+                                <li><NavLink to='/dashboard/manageorder'>Manage Orders</NavLink></li>
                             </>
                             :
                             <>
-                                <li><Link to='/dashboard'>My Order</Link></li>
-                                <li><Link to='/dashboard/addreview'>Add Reviews</Link></li>
+                                <li><NavLink to='/dashboard'>My Order</NavLink></li>
+                                <li><NavLink to='/dashboard/addreview'>Add Reviews</NavLink></li>
                             </>
                     }
                 </ul>
