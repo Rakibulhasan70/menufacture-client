@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import UseOrder from '../../Hooks/UseOrder';
 
 const OrderDetails = (props) => {
@@ -23,7 +24,10 @@ const OrderDetails = (props) => {
 
         }
     }
-
+    // const navigate = useNavigate()
+    // const handleNavigate = () => {
+    //     navigate('/payment')
+    // }
 
     return (
         <div>
@@ -40,7 +44,7 @@ const OrderDetails = (props) => {
                     <h2>Phone: {phone || 'Not Found'}</h2>
                     <div className='flex justify-between'>
                         <button onClick={() => handleDeleteBtn(_id)} className='btn btn-accent w-20'>Delete</button>
-                        <button className='btn btn-primary w-20'>Pay</button>
+                        <Link to={`/dashboard/payment/${_id}`}><button className='btn btn-primary w-20'>Pay</button></Link>
                     </div>
                 </div>
             </div>

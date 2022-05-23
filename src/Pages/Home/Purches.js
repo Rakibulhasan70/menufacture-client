@@ -128,27 +128,27 @@ const Purches = () => {
                         <h2>Order Quantity : {car.order}</h2>
                         <h2>Available Quantity: {car.availableOrder}</h2>
                         <h2>Price: ${car.price}</h2>
-                        <input className='border-2 rounded-md' value={user?.displayName} disabled type="text" name="name" id="" placeholder='displayName' />
+                        <input className='border-2 rounded-md px-2 py-2 mt-3' value={user?.displayName} disabled type="text" name="name" id="" placeholder='displayName' />
                         <br />
-                        <input className='border-2 rounded-md mt-2' value={user.email} disabled type="email" name="email" id="" placeholder='Email' />
+                        <input className='border-2 rounded-md mt-2 px-2 py-2' value={user.email} disabled type="email" name="email" id="" placeholder='Email' />
                         <br />
-                        <input type="text" name="address" placeholder='Address' className=' border-2 rounded-md mt-2' id="" />
+                        <input type="text" name="address" placeholder='Address ' className=' border-2 rounded-md mt-2 px-2 py-2' id="" />
                         <br />
-                        <input type="number" name="phone" placeholder='Phone ' className=' border-2 rounded-md mt-2' id="" />
+                        <input type="number" name="phone" placeholder='Phone ' className=' border-2 rounded-md mt-2 px-2 py-2' id="" />
                         <br />
-                        <input type="submit" value="Purches" className='border-2 rounded-md mt-2 w-3/4 ' />
+                        <input type="submit" value="Purches" className='border-2 rounded-md mt-2 w-3/4 px-2 py-2 btn btn-success text-white' />
 
                     </form>
 
                     <form onSubmit={handleIncrease}>
-                        <input className='border-2 mt-5 rounded-md ' type="number" name="number" id="" placeholder='Order Increase' />
+                        <input className='border-2 mt-5 rounded-md px-2 py-2' type="number" name="number" id="" placeholder='Order Increase' />
 
-                        <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-3 py-1 rounded text-white' />
+                        <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white' />
                     </form>
 
                     <form onSubmit={handleDecrease}>
-                        <input className='border-2 mt-1 rounded-md' type="number" name="number" id="" placeholder='Order Decrease' />
-                        <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-3 py-1 rounded text-white ' />
+                        <input className='border-2 mt-1 rounded-md px-2 py-2' type="number" name="number" id="" placeholder='Order Decrease' />
+                        <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white ' />
                     </form>
 
 
