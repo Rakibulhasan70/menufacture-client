@@ -18,7 +18,7 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number > 0 && number < order && number < availableOrder) {
+        if (number) {
             order = parseInt(order) + parseInt(number)
             console.log(order);
             car = { order, img, description, availableOrder, name, price }
@@ -26,7 +26,7 @@ const Purches = () => {
 
         }
         else {
-            alert('wrong')
+            toast.error(`You have to purchase maximum ${car.availableOrder} products`)
         }
 
         const url = `http://localhost:5000/part/${carId}`
@@ -48,7 +48,7 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number > 0 && number < order && number < availableOrder) {
+        if (number) {
             order = parseInt(order) - parseInt(number)
             console.log(order);
             car = { order, img, description, availableOrder, name, price }
@@ -56,7 +56,8 @@ const Purches = () => {
 
         }
         else {
-            alert('wrong')
+            toast.error(`You have to purchase at least ${car.order} products`)
+
         }
 
         const url = `http://localhost:5000/part/${carId}`
@@ -123,7 +124,7 @@ const Purches = () => {
                         <img className='w-60' src={car.img} alt="" />
                         <h2 class="card-title">Name: {car.name}</h2>
                         <p>Description: {car.description}</p>
-                        <h2>Order Quantity : {car.order}</h2>
+                        <h2>Minuaum Quantity : {car.order}</h2>
                         <h2>Available Quantity: {car.availableOrder}</h2>
                         <h2>Price: ${car.price}</h2>
 
@@ -135,21 +136,20 @@ const Purches = () => {
                         <br />
                         <input type="number" name="phone" placeholder='Phone ' className=' border-2 rounded-md mt-2 px-2 py-2' id="" />
                         <br />
-                        <input type="submit" value="Purches" className='border-2 rounded-md mt-2 w-3/4 px-2 py-2 btn btn-success text-white' />
-
+                        {
+                            <input type="submit" value="Purches" className='border-2 rounded-md mt-2 w-3/4 px-2 py-2 btn btn-success text-white' />
+                        }
                     </form>
-
                     <form onSubmit={handleIncrease}>
-                        <input className='border-2 mt-5 rounded-md px-2 py-2' type="number" name="number" id="" placeholder='Order Increase' />
+                        <input className='border-2 mt-5 rounded-md px-2 py-2' type="number" defaultValue={car.availableOrder} name="number" id="" placeholder='Order Increase' />
 
                         <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white' />
                     </form>
 
                     <form onSubmit={handleDecrease}>
-                        <input className='border-2 mt-1 rounded-md px-2 py-2' type="number" name="number" id="" placeholder='Order Decrease' />
+                        <input className='border-2 mt-1 rounded-md px-2 py-2' type="number" defaultValue={car.order} name="number" id="" placeholder='Order Decrease' />
                         <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white ' />
                     </form>
-
 
                 </div>
             </div>
