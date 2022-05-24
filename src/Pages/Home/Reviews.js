@@ -25,7 +25,7 @@ const Reviews = () => {
                     </Review>)
                 }
             </div>
-            <p className='text-center my-5 text-bold text-xl link link-hover'><Link to='/dashboard/addreview'> Go to Add Review</Link></p>
+            <p className='text-center my-5 text-bold text-xl link link-hover text-blue-500'><Link to='/dashboard/addreview'> Go to Add Review</Link></p>
         </div>
     );
 };

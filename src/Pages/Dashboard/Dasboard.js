@@ -31,8 +31,8 @@ const Dasboard = () => {
                             </>
                             :
                             <>
-                                <li><NavLink to='/dashboard'>My Order</NavLink></li>
-                                <li><NavLink to='/dashboard/addreview'>Add Reviews</NavLink></li>
+                                <li><Link to='/dashboard'>My Order</Link></li>
+                                <li><Link to='/dashboard/addreview'>Add Reviews</Link></li>
                             </>
                     }
                 </ul>

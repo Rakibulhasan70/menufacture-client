@@ -1,0 +1,22 @@
+.review {
+    box-shadow: 0 0 10px lightgrey;
+
+}
+
+.review1 {
+    background-color: rgb(224, 190, 104);
+    border-radius: 10px;
+    color: white;
+}
+
+.review2 {
+    background-color: gray;
+    border-radius: 10px;
+    color: white;
+}
+
+.review3 {
+    background-color: rgb(155, 187, 200);
+    border-radius: 10px;
+    color: white;
+}

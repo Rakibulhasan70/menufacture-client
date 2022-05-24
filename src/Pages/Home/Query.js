@@ -4,7 +4,7 @@ import img from '../../image/query.jpg'
 const Query = () => {
     return (
         <div>
-            <h2 className='text-3xl text-center font-semibold my-5'>Have Any Question</h2>
+            <h2 className='text-3xl text-center font-semibold my-5'>Have Any Question ?</h2>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 px-12'>
                 <div><img className='w-1/2' src={img} alt="" /></div>
                 <div>

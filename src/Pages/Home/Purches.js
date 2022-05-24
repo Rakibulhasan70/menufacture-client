@@ -18,8 +18,8 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number) {
-            order = parseInt(order) + parseInt(number)
+        if (number < availableOrder) {
+            order = parseInt(order) - parseInt(number)
             console.log(order);
             car = { order, img, description, availableOrder, name, price }
             console.log(car);
@@ -48,8 +48,8 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number) {
-            order = parseInt(order) - parseInt(number)
+        if (order < number) {
+            order = parseInt(number) + parseInt(order)
             console.log(order);
             car = { order, img, description, availableOrder, name, price }
             console.log(car);
@@ -128,20 +128,18 @@ const Purches = () => {
                         <h2>Available Quantity: {car.availableOrder}</h2>
                         <h2>Price: ${car.price}</h2>
 
-                        <input className='border-2 rounded-md px-2 py-2 mt-3' value={user?.displayName} disabled type="text" name="name" id="" placeholder='displayName' />
+                        <input className='border-2 rounded-md  w-full max-w-xs px-2 py-2 mt-3' value={user?.displayName} disabled type="text" name="name" id="" placeholder='displayName' />
                         <br />
-                        <input className='border-2 rounded-md mt-2 px-2 py-2' value={user.email} disabled type="email" name="email" id="" placeholder='Email' />
+                        <input className='border-2  w-full max-w-xs rounded-md mt-2 px-2 py-2' value={user.email} disabled type="email" name="email" id="" placeholder='Email' />
                         <br />
-                        <input type="text" name="address" placeholder='Address ' className=' border-2 rounded-md mt-2 px-2 py-2' id="" />
+                        <input type="text" name="address" placeholder='Address ' className=' border-2  w-full max-w-xs rounded-md mt-2 px-2 py-2' id="" />
                         <br />
-                        <input type="number" name="phone" placeholder='Phone ' className=' border-2 rounded-md mt-2 px-2 py-2' id="" />
+                        <input type="number" name="phone" placeholder='Phone ' className=' border-2  w-full max-w-xs rounded-md mt-2 px-2 py-2' id="" />
                         <br />
-                        {
-                            <input type="submit" value="Purches" className='border-2 rounded-md mt-2 w-3/4 px-2 py-2 btn btn-success text-white' />
-                        }
+                        <input type="submit" value="Purches" className='border-2 rounded-md  w-full max-w-xs mt-2 px-2 py-2 btn btn-success text-white' />
                     </form>
                     <form onSubmit={handleIncrease}>
-                        <input className='border-2 mt-5 rounded-md px-2 py-2' type="number" defaultValue={car.availableOrder} name="number" id="" placeholder='Order Increase' />
+                        <input className='border-2 mt-5 rounded-md px-2 py-2  ' type="number" defaultValue={car.availableOrder} name="number" id="" placeholder='Order Increase' />
 
                         <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white' />
                     </form>
