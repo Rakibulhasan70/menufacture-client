@@ -6,7 +6,7 @@ import { FcFeedback } from "react-icons/fc";
 const BussinessSummery = () => {
     return (
         <div className='mt-5'>
-            <h2 className='text-center text-3xl text-semibold'>Bussiness Summery</h2>
+            <h2 className='text-center text-3xl font-semibold'>Why You Wants?</h2>
             <div className='grid grid-cols-1 lg:grid-cols-3  my-5 gap-7'>
                 <div>
                     <div class="card w-96 bg-base-100 ">

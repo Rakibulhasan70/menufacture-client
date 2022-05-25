@@ -21,7 +21,7 @@ const MyOrder = () => {
         run()
     }, [email, products])
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-5 px-12'>
             {
                 products.map(product => <OrderDetails
                     key={product._id}

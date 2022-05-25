@@ -43,20 +43,22 @@ const AddProduct = () => {
     return (
         <div className='px-12 '>
             <h2 className='text-2xl my-4'>Please Add A Product</h2>
-            <form onSubmit={handleSubmit} className='mt-4'>
-                <input className='input input-bordered w-full max-w-xs  mt-3' type="photo URL" name="img" id="" placeholder='Image' />
-                <br />
-                <input className='input input-bordered w-full max-w-xs  mt-3' type="text" name="name" id="" placeholder='Name' />
-                <br />
-                <input className='input input-bordered w-full max-w-xs  mt-3' type="text" name="description" id="" placeholder='Description' />
-                <br />
-                <input type="number" name="orderquantity" placeholder='Order Quantity ' className='input input-bordered w-full max-w-xs  mt-3' id="" />
-                <br />
-                <input type="number" name="avaialblequantity" placeholder='Available Quantity' className='input input-bordered w-full max-w-xs  mt-3' id="" />
-                <br />
-                <input type="number" name="price" placeholder='Price' className=' input input-bordered w-full max-w-xs  mt-3' id="" />
-                <br />
-                <input type="submit" value="Purches" className='input input-bordered w-full max-w-xs  mt-3 btn btn-success' />
+            <form onSubmit={handleSubmit} className='mt-4 '>
+                <div>
+                    <input className='input input-bordered w-full max-w-xs  mt-3' type="photo URL" name="img" id="" placeholder='Image' />
+                    <br />
+                    <input className='input input-bordered w-full max-w-xs  mt-3' type="text" name="name" id="" placeholder='Name' />
+                    <br />
+                    <input className='input input-bordered w-full max-w-xs  mt-3' type="text" name="description" id="" placeholder='Description' />
+                    <br />
+                    <input type="number" name="orderquantity" placeholder='Order Quantity ' className='input input-bordered w-full max-w-xs  mt-3' id="" />
+                    <br />
+                    <input type="number" name="avaialblequantity" placeholder='Available Quantity' className='input input-bordered w-full max-w-xs  mt-3' id="" />
+                    <br />
+                    <input type="number" name="price" placeholder='Price' className=' input input-bordered w-full max-w-xs  mt-3' id="" />
+                    <br />
+                    <input type="submit" value="Purches" className='input input-bordered w-full max-w-xs  mt-3 btn btn-success' />
+                </div>
 
             </form>
         </div>

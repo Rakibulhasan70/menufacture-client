@@ -13,7 +13,7 @@ const ManagProducts = () => {
             <h2 className='text-2xl text-center text-blue-500'>Manage All Product</h2>
             <div>
                 <h2>{parts.name}</h2>
-                <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-5'>
+                <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-5 px-6'>
                     {
                         parts.map(part => <ManageOrderDetails
                             key={part._id}

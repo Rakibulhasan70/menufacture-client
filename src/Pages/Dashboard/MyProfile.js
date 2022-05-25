@@ -54,9 +54,9 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h2 className='text-3xl font-semibold my-5 text-purple-500'>My profile</h2>
-            <div className='grid grid-cols-1 lg:grid-cols-2'>
-                <div>
+            <h2 className='text-3xl font-semibold my-5 text-black text-center pr-20'>My profile</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-2 '>
+                <div className='px-16'>
                     <form onSubmit={handleSubmit}>
                         <input type="text" placeholder="Name" name='name' disabled value={user?.displayName} class="input input-bordered w-full max-w-xs  mt-3" />
                         <br />

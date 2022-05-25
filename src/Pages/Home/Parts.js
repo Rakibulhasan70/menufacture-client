@@ -10,7 +10,7 @@ const Parts = () => {
     }, [])
     return (
         <div>
-            <h2 className='text-center text-3xl mt-5 font-semibold'>All Parts</h2>
+            <h2 className='text-center text-3xl mt-5 font-semibold text-green-600'>Showing All Products</h2>
             <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-5'>
                 {
                     parts.map(part => <Part

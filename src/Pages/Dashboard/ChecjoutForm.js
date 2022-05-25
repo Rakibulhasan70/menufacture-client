@@ -67,11 +67,36 @@ const ChecjoutForm = (props) => {
         if (intentError) {
             setCardError(intentError?.message)
             success('')
+            setProccessing(false)
         }
         else {
             setCardError('');
             console.log(paymentIntent);
+            setTransactionId(paymentIntent.id)
             setSuccess('Your Payment is complete')
+            setProccessing(true)
+
+            // update kora
+            // store payment on database
+            const payment = {
+                appointment: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`http://localhost:5000/myorder/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(payment)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    setProccessing(false)
+                    console.log(data)
+                })
+
+
+
         }
 
 
@@ -97,15 +122,24 @@ const ChecjoutForm = (props) => {
                         },
                     }}
                 />
-                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
-                    Pay
-                </button>
+
+                {!transactionId &&
+                    <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
+                        Pay
+                    </button >}
+                {transactionId &&
+                    <button className='btn btn-success btn-sm mt-4 text-white' type="submit" disabled={!stripe || !clientSecret}>
+                        Paied
+                    </button >}
             </form>
             {
                 cardError && <p className='text-red-500'>{cardError}</p>
             }
             {
-                success && <p className='text-green-500'>{success}</p>
+                success && <p className='text-green-500'><div>
+                    <p>{success}</p>
+                    <p>Your Transication Id : <span className='text-orange-500 font bold'>{transactionId}</span></p>
+                </div></p>
             }
         </>
     );

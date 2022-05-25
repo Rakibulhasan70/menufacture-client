@@ -17,7 +17,7 @@ const Navbar = () => {
         <li><NavLink to='/portfolio'>Portfolio</NavLink></li>
         <li><NavLink to='/blogs'>Blog</NavLink></li>
         {
-            user && <NavLink className='mt-3' to='/dashboard'>DashBoard</NavLink>
+            user && <NavLink className='mt-3 px-2' to='/dashboard'>DashBoard</NavLink>
         }
 
         {
@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 <>
                     <button className='btn btn-ghost lowercase text-xl font-normal' onClick={logout}>Sign-Out</button>
-                    <p className='text-xl bg-base-200 mt-2'>Name:{user?.displayName}</p>
+                    <p className='text-xl  mt-3'>Name:{user?.displayName}</p>
                 </>
 
                 :
