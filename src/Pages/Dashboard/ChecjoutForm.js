@@ -1,34 +1,113 @@
-import { CardElement, useStripe } from '@stripe/react-stripe-js';
-import React from 'react';
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
+import React, { useEffect, useState } from 'react';
 
-const ChecjoutForm = () => {
+const ChecjoutForm = (props) => {
     const stripe = useStripe()
-    const handleSubmit = event => {
+    const elements = useElements()
+    const [cardError, setCardError] = useState('')
+    const [success, setSuccess] = useState('')
+    const [proccessing, setProccessing] = useState(false)
+    const [transactionId, setTransactionId] = useState('');
+    const [clientSecret, setClientSecret] = useState('')
+
+    const { price, name, email, _id } = props.payment
+    console.log(price);
+
+
+    useEffect(() => {
+        if (price) {
+            fetch('http://localhost:5000/create-payment-intent', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({ price })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data?.clientSecret) {
+                        setClientSecret(data.clientSecret)
+                    }
+                })
+        }
+
+    }, [price])
+
+    const handleSubmit = async (event) => {
         event.preventDefault()
+        if (!stripe || !elements) {
+            return
+        }
+        const card = elements.getElement(CardElement);
+
+        if (card == null) {
+            return;
+        }
+
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+            type: 'card',
+            card
+        });
+
+        setCardError(error?.message || '')
+        setSuccess('')
+
+        const { paymentIntent, error: intentError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        name: name,
+                        email: email
+                    }
+                }
+            }
+        );
+        if (intentError) {
+            setCardError(intentError?.message)
+            success('')
+        }
+        else {
+            setCardError('');
+            console.log(paymentIntent);
+            setSuccess('Your Payment is complete')
+        }
+
+
     }
 
+
     return (
-        <form onSubmit={handleSubmit}>
-            <CardElement
-                options={{
-                    style: {
-                        base: {
-                            fontSize: '16px',
-                            color: '#424770',
-                            '::placeholder': {
-                                color: '#aab7c4',
+        <>
+            <form onSubmit={handleSubmit}>
+                <CardElement
+                    options={{
+                        style: {
+                            base: {
+                                fontSize: '16px',
+                                color: '#424770',
+                                '::placeholder': {
+                                    color: '#aab7c4',
+                                },
+                            },
+                            invalid: {
+                                color: '#9e2146',
                             },
                         },
-                        invalid: {
-                            color: '#9e2146',
-                        },
-                    },
-                }}
-            />
-            <button type="submit" disabled={!stripe}>
-                Pay
-            </button>
-        </form>
+                    }}
+                />
+                <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
+                    Pay
+                </button>
+            </form>
+            {
+                cardError && <p className='text-red-500'>{cardError}</p>
+            }
+            {
+                success && <p className='text-green-500'>{success}</p>
+            }
+        </>
     );
 };
 
