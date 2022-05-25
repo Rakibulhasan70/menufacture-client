@@ -37,6 +37,14 @@ const Blogs = () => {
                     <p>Unit testing is a type of software testing where individual units or components of a software are tested. Developers write unit tests for their code to make sure that the code works correctly. This helps to detect and protect against bugs in the future. Developers write unit tests for their code to make sure that the code works correctly. This helps to detect and protect against bugs in the future.</p>
                 </div>
             </div>
+            <div tabindex="0" class="collapse collapse-plus border border-base-300 bg-base-100 w-1/2 mx-auto my-5 rounded-box">
+                <div class="collapse-title text-xl font-medium">
+                    Why you do not set the state directly in React. For example, if you have const [products, setProducts] = useState([]). Why you do not set products = [...] instead, you use the setProducts
+                </div>
+                <div class="collapse-content">
+                    <p>It's obvious from the statement that if we mutate the state directly, it will change the reference of the state in the previous virtual DOM as well. So, React won't be able to see that there is a change of the state and so it won't be reflected in the original DOM until we reload. The problem is more obvious when we extend a component with React.PureComponent instead of where React tries to optimize some time by not rendering components if no changes are found. Also, mutating the state directly can lead to odd bugs and components that are hard to optimize.</p>
+                </div>
+            </div>
         </div>
     );
 };

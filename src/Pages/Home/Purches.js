@@ -18,7 +18,7 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number < availableOrder) {
+        if (number < availableOrder && number > order && number > 0) {
             order = parseInt(order) - parseInt(number)
             console.log(order);
             car = { order, img, description, availableOrder, name, price }
@@ -26,7 +26,7 @@ const Purches = () => {
 
         }
         else {
-            toast.error(`You have to purchase maximum ${car.availableOrder} products`)
+            toast.error(`You have to purchase maximum ${car.availableOrder} products and at least ${car.order} order`)
         }
 
         const url = `http://localhost:5000/part/${carId}`
@@ -48,7 +48,7 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (order < number) {
+        if (order < number && number < availableOrder && number > 0) {
             order = parseInt(number) + parseInt(order)
             console.log(order);
             car = { order, img, description, availableOrder, name, price }
@@ -56,7 +56,7 @@ const Purches = () => {
 
         }
         else {
-            toast.error(`You have to purchase at least ${car.order} products`)
+            toast.error(`You have to purchase at least ${car.order} products and maximum ${car.availableOrder} order `)
 
         }
 
@@ -121,7 +121,7 @@ const Purches = () => {
             <div class=" bg-base-100 gird grid-cols-1 lg:grid-cols-4 flex justify-center items-center" >
                 <div >
                     <form onSubmit={handleSubmit} className='mt-4'>
-                        <img className='w-60' src={car.img} alt="" />
+                        <img className='w-60 rounded-xl' src={car.img} alt="" />
                         <h2 class="card-title">Name: {car.name}</h2>
                         <p>Description: {car.description}</p>
                         <h2>Minuaum Quantity : {car.order}</h2>
@@ -136,6 +136,7 @@ const Purches = () => {
                         <br />
                         <input type="number" name="phone" placeholder='Phone ' className=' border-2  w-full max-w-xs rounded-md mt-2 px-2 py-2' id="" />
                         <br />
+
                         <input type="submit" value="Purches" className='border-2 rounded-md  w-full max-w-xs mt-2 px-2 py-2 btn btn-success text-white' />
                     </form>
                     <form onSubmit={handleIncrease}>

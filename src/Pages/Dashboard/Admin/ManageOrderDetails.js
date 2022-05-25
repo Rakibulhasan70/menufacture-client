@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import UsePart from '../../../Hooks/UsePart';
 
 const ManageOrderDetails = (props) => {
@@ -18,6 +19,7 @@ const ManageOrderDetails = (props) => {
                     console.log(data)
                     const remainingItem = products.filter(product => product._id !== id)
                     setProducts(remainingItem)
+                    // toast('deleted')
                 })
 
         }

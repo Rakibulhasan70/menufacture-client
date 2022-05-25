@@ -6,7 +6,7 @@ import banner3 from '../../image/banner/ban3.png'
 const Banner = () => {
     return (
         <div>
-            <h2 className='text-center text-4xl font-semibold text-purple-500 mb-5'>BMW Top Speed</h2>
+            <h2 className='text-center text-4xl font-semibold text-blue-600 mb-5'>BMW Top Speed</h2>
             <div class="carousel w-full mt-5">
                 <div id="slide1" class="carousel-item relative w-full">
                     <img src={banner3} class="w-full" /> /

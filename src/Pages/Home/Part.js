@@ -11,7 +11,7 @@ const Part = (props) => {
         <div>
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
-                    <img src={img} alt="" />
+                    <img style={{ height: '190px', borderRadius: '15px' }} src={img} alt="" />
                     <h2 class="card-title">Name: {name}</h2>
                     <p>Description: {description}</p>
                     <p>Order-Quantity: {order}</p>

@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import UseOrder from '../../Hooks/UseOrder';
 
-const OrderDetails = (props) => {
+const OrderDetails = (props, setModal) => {
     const { _id, address, name, phone, productName, img, description, order, availableOrder, price } = props.product
-
+    const navigate = useNavigate()
+    const handlePay = () => {
+        navigate(`/dashboard/payment/${_id}`)
+    }
 
     const [products, setProducts] = UseOrder()
     const handleDeleteBtn = id => {
@@ -20,9 +24,12 @@ const OrderDetails = (props) => {
                     console.log(data)
                     const remainingItem = products.filter(product => product._id !== id)
                     setProducts(remainingItem)
+                    toast('deleted')
                 })
 
         }
+
+
     }
     return (
         <div>
@@ -39,7 +46,7 @@ const OrderDetails = (props) => {
                     <h2>Phone: {phone || 'Not Found'}</h2>
                     <div className='flex justify-between'>
                         <button onClick={() => handleDeleteBtn(_id)} className='btn btn-accent w-20'>Delete</button>
-                        <Link to={`/dashboard/payment/${_id}`}><button className='btn btn-primary w-20'>Pay</button></Link>
+                        <button onClick={handlePay} className='btn btn-primary w-20'>Pay</button>
                     </div>
                 </div>
             </div>
