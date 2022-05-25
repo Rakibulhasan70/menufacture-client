@@ -1,5 +1,7 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ChecjoutForm = (props) => {
     const stripe = useStripe()
@@ -9,6 +11,7 @@ const ChecjoutForm = (props) => {
     const [proccessing, setProccessing] = useState(false)
     const [transactionId, setTransactionId] = useState('');
     const [clientSecret, setClientSecret] = useState('')
+    const navigate = useNavigate()
 
     const { price, name, email, _id } = props.payment
     console.log(price);
@@ -75,6 +78,8 @@ const ChecjoutForm = (props) => {
             setTransactionId(paymentIntent.id)
             setSuccess('Your Payment is complete')
             setProccessing(true)
+            toast('Your Payment is complete')
+            navigate('/dashboard')
 
             // update kora
             // store payment on database
