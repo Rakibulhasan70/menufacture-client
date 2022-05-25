@@ -18,11 +18,9 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number < availableOrder && number > order && number > 0) {
-            order = parseInt(order) - parseInt(number)
-            console.log(order);
+        if (number > order && number < availableOrder) {
+            availableOrder = parseInt(availableOrder) - parseInt(number)
             car = { order, img, description, availableOrder, name, price }
-            console.log(car);
 
         }
         else {
@@ -43,36 +41,36 @@ const Purches = () => {
             })
     }
 
-    const handleDecrease = e => {
-        e.preventDefault()
-        const number = e.target.number.value;
-        let { order, img, description, availableOrder, name, price } = car
+    // const handleDecrease = e => {
+    //     e.preventDefault()
+    //     const number = e.target.number.value;
+    //     let { order, img, description, availableOrder, name, price } = car
 
-        if (order < number && number < availableOrder && number > 0) {
-            order = parseInt(number) + parseInt(order)
-            console.log(order);
-            car = { order, img, description, availableOrder, name, price }
-            console.log(car);
+    //     if (order < number && number < availableOrder && number > 0) {
+    //         availableOrder = parseInt(availableOrder) - parseInt(number)
+    //         console.log(order);
+    //         car = { order, img, description, availableOrder, name, price }
+    //         console.log(car);
 
-        }
-        else {
-            toast.error(`You have to purchase at least ${car.order} products and maximum ${car.availableOrder} order `)
+    //     }
+    //     else {
+    //         toast.error(`You have to purchase at least ${car.order} products and maximum ${car.availableOrder} order `)
 
-        }
+    //     }
 
-        const url = `http://localhost:5000/part/${carId}`
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-Type': 'application/json'
-            },
-            body: JSON.stringify(car),
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-            })
-    }
+    //     const url = `http://localhost:5000/part/${carId}`
+    //     fetch(url, {
+    //         method: 'PUT',
+    //         headers: {
+    //             'content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(car),
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             console.log(data)
+    //         })
+    // }
 
     // form section
 
@@ -136,6 +134,9 @@ const Purches = () => {
                         <br />
                         <input type="number" name="phone" placeholder='Phone ' className=' border-2  w-full max-w-xs rounded-md mt-2 px-2 py-2' id="" />
                         <br />
+                        <h2>Minimum Quantity</h2>
+                        <input className='border-2 mt-1 rounded-md px-2 py-2 w-full max-w-xs' type="number" disabled Value={car.order} name="number" id="" placeholder='Order Decrease' />
+                        <br />
 
                         <input type="submit" value="Purches" className='border-2 rounded-md  w-full max-w-xs mt-2 px-2 py-2 btn btn-success text-white' />
                     </form>
@@ -145,10 +146,10 @@ const Purches = () => {
                         <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white' />
                     </form>
 
-                    <form onSubmit={handleDecrease}>
-                        <input className='border-2 mt-1 rounded-md px-2 py-2' type="number" defaultValue={car.order} name="number" id="" placeholder='Order Decrease' />
-                        <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white ' />
-                    </form>
+                    {/* <form onSubmit={handleDecrease}> */}
+
+                    {/* <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white ' /> */}
+                    {/* </form> */}
 
                 </div>
             </div>

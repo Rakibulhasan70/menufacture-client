@@ -43,7 +43,7 @@ const MyOrder = () => {
 
     return (
         <div>
-            <h2>My appointmnets :{products.length}</h2>
+            <h2>My Orders :{products.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
 

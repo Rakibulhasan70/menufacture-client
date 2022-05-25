@@ -41,11 +41,11 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth>
           <Dasboard></Dasboard>
         </RequireAuth>}>
-          <Route index element={<MyOrder></MyOrder>}></Route>
+          <Route path='myorder' element={<MyOrder></MyOrder>}></Route>
           <Route path='addreview' element={<AddReview></AddReview>}></Route>
           <Route path='updateprofile/:id' element={<UpdateProfile></UpdateProfile>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
-          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
 
           <Route path='makeadmin' element={<RequireAdmin><MakeAdmin></MakeAdmin></RequireAdmin>}></Route>
           <Route path='addproduct' element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
