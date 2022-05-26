@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading';
 const ManageOrders = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
@@ -7,20 +8,37 @@ const ManageOrders = () => {
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
+    // const { data: products, isLoading } = useQuery('products', () => fetch('http://localhost:5000/manageorder')
+    //     .then(res => res.json()))
+
+    // if (isLoading) {
+    //     <Loading></Loading>
+    // }
+
+
+    // / আমার এই প্রজেক্টে react query টা কোনভাবেই ইউস করতে পারতেছি না । সাপোরট সেশনে গিয়েছিলাম কিন্তু সমাধান হয়নি ।
+    //  তাই ঝংকার ভাইয়ার কথামতো এখানে আমার কোড টা লিখে দিলাম/
+
     const [deleting, setDeleting] = useState(null)
+
+
     const handleDeleteBtn = id => {
-        const url = `http://localhost:5000/manageorder/${id}`
-        console.log(url);
-        fetch(url, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                const remainingItem = products.filter(product => product._id !== id)
-                setProducts(remainingItem)
-                setDeleting(remainingItem)
+        const procced = window.confirm('Are you sure for delete ??')
+        if (procced) {
+            const url = `http://localhost:5000/manageorder/${id}`
+            console.log(url);
+            fetch(url, {
+                method: "DELETE"
             })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remainingItem = products.filter(product => product._id !== id)
+                    setProducts(remainingItem)
+                    setDeleting(remainingItem)
+                })
+        }
+
     }
 
     return (
@@ -44,58 +62,18 @@ const ManageOrders = () => {
                                 <th>{index + 1}</th>
                                 <td>{product.productName}</td>
                                 <td>{product.price}$</td>
-                                <div>
-                                    {product.transactionId ?
-                                        <label for="my-modal-6" class="btn modal-button bg-green-500 text-white border-0">Pending</label>
+                                <td>
+                                    {(product.transactionId) ?
+                                        <label for="my-modal-6" class="btn modal-button bg-sky-500 text-white border-0">Pending</label>
                                         :
-                                        <div>
-                                            <label for="my-modal-6" class="btn modal-button bg-green-500 text-black border-0 ">Pay</label>
-                                            <div class="card-actions flex-col my-4">
-                                                <label for="my-modal-6" class="btn modal-button bg-red-500 border-0">Delete</label>
-                                                <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-                                                <div class="modal modal-bottom sm:modal-middle">
-                                                    <div class="modal-box">
-                                                        <h3 class="font-bold text-lg">Are You Sure You want to Delete????</h3>
-                                                        <div class="modal-action">
-                                                            <label for="my-modal-6" class="btn">Cancel</label>
-                                                            <label for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} class="btn bg-red-500 border-0">Delete</label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <>
+                                            <label for="my-modal-6" class="btn modal-button bg-green-500 text-white border-0  ">pay</label>
+
+                                            <button for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} class="btn modal-button bg-red-500 mx-2 text-white border-0 ">delete</button>
+
+                                        </>
                                     }
-                                </div>
-                                {/* <td>
-
-                                    {(product.price && !product.paid) && <Link to={`/dashboard/payment/${product._id}`}><button className='btn btn-sm btn-success'>pay</button></Link>}
-                                    {(product.price && product.paid) && <div>
-                                        <p><span className='text-success font-semibold'>Paid</span></p>
-                                        <p>Transaction id: <span className='text-success font-semibold'>{product.transactionId}</span></p>
-
-                                    </div>}
-                                </td> */}
-                                {/* <div class="card-actions justify-center mt-3"> */}
-
-                                {/* {product.transactionId ?
-                                        <label for="my-modal-6" disabled class="btn modal-button bg-red-500 border-0">Delete</label>
-                                        :
-                                        <label for="my-modal-6" class="btn modal-button bg-red-500 border-0">Delete</label>
-                                    }
-
-
-                                    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-                                    <div class="modal modal-bottom sm:modal-middle">
-                                        <div class="modal-box">
-                                            <h3 class="font-bold text-lg">Are You Sure You want to Delete????</h3>
-
-                                            <div class="modal-action">
-                                                <label for="my-modal-6" class="btn">Cancel</label>
-                                                <label for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} class="btn bg-red-500 border-0">Delete</label>
-                                            </div>
-                                        </div>
-                                    </div> */}
-                                {/* </div> */}
+                                </td>
                             </tr>)
                         }
 

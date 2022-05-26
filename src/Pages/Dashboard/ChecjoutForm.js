@@ -79,7 +79,7 @@ const ChecjoutForm = (props) => {
             setSuccess('Your Payment is complete')
             setProccessing(true)
             toast('Your Payment is complete')
-            navigate('/dashboard')
+            navigate('/dashboard/myorder')
 
             // update kora
             // store payment on database

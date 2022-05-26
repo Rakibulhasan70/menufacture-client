@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading';
 import ManageOrderDetails from './ManageOrderDetails';
 
 const ManagProducts = () => {
@@ -8,6 +10,15 @@ const ManagProducts = () => {
             .then(res => res.json())
             .then(data => setParts(data))
     }, [parts, setParts])
+
+
+    // const { data: parts, isLoading } = useQuery('parts', () => fetch('http://localhost:5000/part')
+    //     .then(res => res.json()))
+
+    // if (isLoading) {
+    //     return <Loading></Loading>
+    // }
+
     return (
         <div>
             <h2 className='text-2xl text-center text-blue-500'>Manage All Product</h2>
@@ -23,6 +34,7 @@ const ManagProducts = () => {
                 </div>
             </div>
         </div>
+
     );
 };
 

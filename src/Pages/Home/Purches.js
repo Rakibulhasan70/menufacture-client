@@ -138,7 +138,8 @@ const Purches = () => {
                         <input className='border-2 mt-1 rounded-md px-2 py-2 w-full max-w-xs' type="number" disabled Value={car.order} name="number" id="" placeholder='Order Decrease' />
                         <br />
 
-                        <input type="submit" value="Purches" className='border-2 rounded-md  w-full max-w-xs mt-2 px-2 py-2 btn btn-success text-white' />
+                        {
+                            <input type="submit" value="Purches" className='border-2 rounded-md  w-full max-w-xs mt-2 px-2 py-2 btn btn-success text-white' />}
                     </form>
                     <form onSubmit={handleIncrease}>
                         <input className='border-2 mt-5 rounded-md px-2 py-2  ' type="number" defaultValue={car.availableOrder} name="number" id="" placeholder='Order Increase' />

@@ -9,8 +9,8 @@ const AddProduct = () => {
         const img = e.target.img.value;
         const name = e.target.name.value
         const description = e.target.description.value
-        const orderquantity = e.target.orderquantity.value
-        const avaialblequantity = e.target.avaialblequantity.value
+        const order = e.target.orderquantity.value
+        const availableOrder = e.target.avaialblequantity.value
         const price = e.target.price.value
 
 
@@ -18,8 +18,8 @@ const AddProduct = () => {
             img,
             name,
             description,
-            orderquantity,
-            avaialblequantity,
+            order,
+            availableOrder,
             price
         }
         console.log(product);
@@ -37,7 +37,6 @@ const AddProduct = () => {
             .then(result => {
                 console.log(result);
                 toast('New Product added done')
-                // navigate('/home')
             })
     }
     return (
