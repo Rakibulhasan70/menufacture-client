@@ -79,7 +79,6 @@ const ChecjoutForm = (props) => {
             setSuccess('Your Payment is complete')
             setProccessing(true)
             toast('Your Payment is complete')
-            navigate('/dashboard/myorder')
 
             // update kora
             // store payment on database
@@ -129,7 +128,7 @@ const ChecjoutForm = (props) => {
                 />
 
                 {!transactionId &&
-                    <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe || !clientSecret}>
+                    <button className='btn btn-success btn-sm mt-4' type="submit" disabled={!stripe}>
                         Pay
                     </button >}
                 {transactionId &&

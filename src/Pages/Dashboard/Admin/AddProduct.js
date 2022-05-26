@@ -10,7 +10,7 @@ const AddProduct = () => {
         const name = e.target.name.value
         const description = e.target.description.value
         const order = e.target.orderquantity.value
-        const availableOrder = e.target.avaialblequantity.value
+        const availableOrder = parseInt(e.target.avaialblequantity.value)
         const price = e.target.price.value
 
 

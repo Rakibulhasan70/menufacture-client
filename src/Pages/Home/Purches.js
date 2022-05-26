@@ -18,16 +18,11 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if ((number > order)) {
+        if ((number > order) && (availableOrder > number)) {
             availableOrder = parseInt(availableOrder) - parseInt(number)
             car = { order, img, description, availableOrder, name, price }
             toast.success('Available order updated')
 
-        }
-        else if ((number < availableOrder)) {
-            availableOrder = parseInt(availableOrder) - parseInt(number)
-            car = { order, img, description, availableOrder, name, price }
-            toast.success('Available order updated')
         }
         else {
             toast.error(`You have to purchase maximum ${car.availableOrder} products and at least ${car.order} order`)
@@ -57,7 +52,7 @@ const Purches = () => {
         const productName = car.name
         const img = car.img
         const description = car.description;
-        const order = car.order;
+        const order = parseInt(car.order)
         const availableOrder = car.availableOrder;
         const price = car.price
 
@@ -80,7 +75,7 @@ const Purches = () => {
             .then(function (res) {
                 if (res?.data?.insertedId) {
                     toast('Purches is done')
-                    navigate('/dashboard')
+                    navigate('/dashboard/myorder')
                 }
             })
     }
