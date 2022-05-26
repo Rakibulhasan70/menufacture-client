@@ -18,10 +18,16 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if ((number > order) && (number < availableOrder)) {
+        if ((number > order)) {
             availableOrder = parseInt(availableOrder) - parseInt(number)
             car = { order, img, description, availableOrder, name, price }
+            toast.success('Available order updated')
 
+        }
+        else if ((number < availableOrder)) {
+            availableOrder = parseInt(availableOrder) - parseInt(number)
+            car = { order, img, description, availableOrder, name, price }
+            toast.success('Available order updated')
         }
         else {
             toast.error(`You have to purchase maximum ${car.availableOrder} products and at least ${car.order} order`)
@@ -108,7 +114,7 @@ const Purches = () => {
                             <input type="submit" value="Purches" className='border-2 rounded-md  w-full max-w-xs mt-2 px-2 py-2 btn btn-success text-white' />}
                     </form>
                     <form onSubmit={handleIncrease}>
-                        <input className='border-2 mt-5 rounded-md px-2 py-2  ' type="number" defaultValue={car.availableOrder} name="number" id="" placeholder='Order Increase' />
+                        <input className='border-2 mt-5 rounded-md px-2 py-2  ' type="number" name="number" id="" placeholder='Order Increase' />
 
                         <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white' />
                     </form>
