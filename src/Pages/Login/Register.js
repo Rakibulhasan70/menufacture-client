@@ -48,7 +48,7 @@ const Register = () => {
     return (
         <div>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-12 justify-center items-center">
-                <div class="text-center lg:text-left  lg:max-w-lg ">
+                <div className="text-center lg:text-left  lg:max-w-lg ">
                     <img className='rounded-lg' src={signup} alt="" />
                 </div>
                 <div className='flex justify-center items-center  '>

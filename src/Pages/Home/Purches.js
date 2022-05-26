@@ -10,7 +10,7 @@ const Purches = () => {
     const { carId } = useParams()
     let [car] = UseCardDetails(carId)
     const [user] = useAuthState(auth)
-    const email = user?.email
+    const email = user?.email;
 
 
     const handleIncrease = e => {
@@ -18,7 +18,7 @@ const Purches = () => {
         const number = e.target.number.value;
         let { order, img, description, availableOrder, name, price } = car
 
-        if (number > order && number < availableOrder) {
+        if ((number > order) && (number < availableOrder)) {
             availableOrder = parseInt(availableOrder) - parseInt(number)
             car = { order, img, description, availableOrder, name, price }
 
@@ -41,41 +41,7 @@ const Purches = () => {
             })
     }
 
-    // const handleDecrease = e => {
-    //     e.preventDefault()
-    //     const number = e.target.number.value;
-    //     let { order, img, description, availableOrder, name, price } = car
-
-    //     if (order < number && number < availableOrder && number > 0) {
-    //         availableOrder = parseInt(availableOrder) - parseInt(number)
-    //         console.log(order);
-    //         car = { order, img, description, availableOrder, name, price }
-    //         console.log(car);
-
-    //     }
-    //     else {
-    //         toast.error(`You have to purchase at least ${car.order} products and maximum ${car.availableOrder} order `)
-
-    //     }
-
-    //     const url = `https://cryptic-retreat-89844.herokuapp.com/part/${carId}`
-    //     fetch(url, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(car),
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             console.log(data)
-    //         })
-    // }
-
-    // form section
-
     const navigate = useNavigate()
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -116,11 +82,11 @@ const Purches = () => {
 
     return (
         <div className='px-12'>
-            <div class=" bg-base-100 gird grid-cols-1 lg:grid-cols-4 flex justify-center items-center" >
+            <div className=" bg-base-100 gird grid-cols-1 lg:grid-cols-4 flex justify-center items-center" >
                 <div >
                     <form onSubmit={handleSubmit} className='mt-4'>
                         <img className='w-60 rounded-xl' src={car.img} alt="" />
-                        <h2 class="card-title">Name: {car.name}</h2>
+                        <h2 className="card-title">Name: {car.name}</h2>
                         <p>Description: {car.description}</p>
                         <h2>Minuaum Quantity : {car.order}</h2>
                         <h2>Available Quantity: {car.availableOrder}</h2>
@@ -135,7 +101,7 @@ const Purches = () => {
                         <input type="number" name="phone" placeholder='Phone ' className=' border-2  w-full max-w-xs rounded-md mt-2 px-2 py-2' id="" />
                         <br />
                         <h2>Minimum Quantity</h2>
-                        <input className='border-2 mt-1 rounded-md px-2 py-2 w-full max-w-xs' type="number" disabled Value={car.order} name="number" id="" placeholder='Order Decrease' />
+                        <input className='border-2 mt-1 rounded-md px-2 py-2 w-full max-w-xs' type="number" disabled value={car.order} name="number" id="" placeholder='Order Decrease' />
                         <br />
 
                         {
@@ -146,11 +112,6 @@ const Purches = () => {
 
                         <input type="submit" value="Increase" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white' />
                     </form>
-
-                    {/* <form onSubmit={handleDecrease}> */}
-
-                    {/* <input type="submit" value="Decress" className='bg-indigo-500 border-2 mt-2 px-2 py-2 rounded text-white ' /> */}
-                    {/* </form> */}
 
                 </div>
             </div>

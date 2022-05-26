@@ -44,8 +44,8 @@ const ManageOrders = () => {
     return (
         <div>
             <h2 className='text-2xl my-3'>All Orders: {products.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
@@ -64,12 +64,12 @@ const ManageOrders = () => {
                                 <td>{product.price}$</td>
                                 <td>
                                     {(product.transactionId) ?
-                                        <label for="my-modal-6" class="btn modal-button bg-sky-500 text-white border-0">Pending</label>
+                                        <label for="my-modal-6" className="btn modal-button bg-sky-500 text-white border-0">Pending</label>
                                         :
                                         <>
-                                            <label for="my-modal-6" class="btn modal-button bg-green-500 text-white border-0  ">pay</label>
+                                            <label for="my-modal-6" className="btn modal-button bg-green-500 text-white border-0  ">pay</label>
 
-                                            <button for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} class="btn modal-button bg-red-500 mx-2 text-white border-0 ">delete</button>
+                                            <button for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} className="btn modal-button bg-red-500 mx-2 text-white border-0 ">delete</button>
 
                                         </>
                                     }

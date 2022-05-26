@@ -62,11 +62,11 @@ const Login = () => {
     return (
         <div>
             <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-12 justify-center items-center'>
-                <div class="text-center lg:text-left  lg:max-w-sm ">
+                <div className="text-center lg:text-left  lg:max-w-sm ">
                     <img className='rounded-lg' src={login} alt="" />
                 </div>
                 <div className='flex justify-center items-center h-screen'>
-                    <div className="card w-96 bg-base-100 shadow-xl">
+                    <div className="card  bg-base-100 shadow-xl">
                         <div className="card-body">
 
                             <h2 className="text-center text-2xl font-bold">Please Login</h2>

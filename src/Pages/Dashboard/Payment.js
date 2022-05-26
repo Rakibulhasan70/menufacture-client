@@ -24,15 +24,15 @@ const Payment = () => {
     return (
         <div className='lg:w-1/2 mx-auto'>
 
-            <div class="card w-full max-w-md bg-base-100 shadow-xl my-12 ">
-                <div class="card-body">
+            <div className="card w-full max-w-md bg-base-100 shadow-xl my-12 ">
+                <div className="card-body">
                     <p className="text-success font-bold">Hello , {payment.name}</p>
-                    <h2 class="card-title"><span className='text-primary'>Please Pay for</span> {payment.email}</h2>
+                    <h2 className="card-title"><span className='text-primary'>Please Pay for</span> {payment.email}</h2>
                     <p className='text-xl'>And Please pay {payment.price} BDT</p>
                 </div>
             </div>
-            <div class="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
-                <div class="card-body">
+            <div className="card flex-shrink-0 w-50 max-w-md shadow-2xl bg-base-100">
+                <div className="card-body">
                     <Elements stripe={stripePromise}>
                         <ChecjoutForm
                             payment={payment}

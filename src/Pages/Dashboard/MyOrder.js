@@ -44,8 +44,8 @@ const MyOrder = () => {
     return (
         <div>
             <h2>My Orders :{products.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
@@ -72,23 +72,23 @@ const MyOrder = () => {
 
                                     </div>}
                                 </td>
-                                <div class="card-actions justify-center mt-3">
+                                <div className="card-actions justify-center mt-3">
 
                                     {product.transactionId ?
-                                        <label for="my-modal-6" disabled class="btn modal-button bg-red-500 border-0">Delete</label>
+                                        <label for="my-modal-6" disabled className="btn modal-button bg-red-500 border-0">Delete</label>
                                         :
-                                        <label for="my-modal-6" class="btn modal-button bg-red-500 border-0">Delete</label>
+                                        <label for="my-modal-6" className="btn modal-button bg-red-500 border-0">Delete</label>
                                     }
 
 
-                                    <input type="checkbox" id="my-modal-6" class="modal-toggle" />
-                                    <div class="modal modal-bottom sm:modal-middle">
-                                        <div class="modal-box">
-                                            <h3 class="font-bold text-lg">Are You Sure You want to Delete????</h3>
+                                    <input type="checkbox" id="my-modal-6" className="modal-toggle" />
+                                    <div className="modal modal-bottom sm:modal-middle">
+                                        <div className="modal-box">
+                                            <h3 className="font-bold text-lg">Are You Sure You want to Delete????</h3>
 
-                                            <div class="modal-action">
-                                                <label for="my-modal-6" class="btn">Cancel</label>
-                                                <label for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} class="btn bg-red-500 border-0">Delete</label>
+                                            <div className="modal-action">
+                                                <label for="my-modal-6" className="btn">Cancel</label>
+                                                <label for="my-modal-6" onClick={() => handleDeleteBtn(product._id)} className="btn bg-red-500 border-0">Delete</label>
                                             </div>
                                         </div>
                                     </div>

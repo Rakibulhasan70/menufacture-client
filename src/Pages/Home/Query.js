@@ -9,11 +9,11 @@ const Query = () => {
                 <div><img className='w-1/2' src={img} alt="" /></div>
                 <div>
                     <form>
-                        <input type="text" placeholder="Name" class="input input-bordered input-primary w-full max-w-md" />
+                        <input type="text" placeholder="Name" className="input input-bordered input-primary w-full max-w-md" />
                         <br />
-                        <textarea type="text" placeholder="Details" class="input input-bordered input-primary w-full max-w-md py-2 mt-3" />
+                        <textarea type="text" placeholder="Details" className="input input-bordered input-primary w-full max-w-md py-2 mt-3" />
                         <br />
-                        <input type="submit" placeholder="Sumbit " class="input input-bordered input-primary w-full max-w-md mt-3 text-blue-600 text-bold text-xl hover:bg-accent" />
+                        <input type="submit" placeholder="Sumbit " className="input input-bordered input-primary w-full max-w-md mt-3 text-blue-600 text-bold text-xl hover:bg-accent" />
                     </form>
                 </div>
             </div>
