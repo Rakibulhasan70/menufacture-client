@@ -1,10 +1,18 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Car Menufacture.
 
-## Available Scripts
+## Got to my project link and enjoy it.
+This is my project Live site link [https://assignment-12-client-c7d17.web.app/](https://assignment-12-client-c7d17.web.app/)to view in your browser.
 
-In the project directory, you can run:
+
+### The feature about my project
+- You can not login with fake token data or expired data.
+- We provide us for many extra services.
+- You can increase your purces item within maximum quantity
+- Admin can add or deleted the prats item
+- Card Payment system available. You can payment any national or international card
+- User can not see the admin route and updated his/her profile
 
 ### `npm start`
 
