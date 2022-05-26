@@ -3,7 +3,7 @@ import React from 'react';
 const MakeAdminRow = ({ makeAdmin }) => {
     const { email, role } = makeAdmin;
     const makeAdmins = () => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://cryptic-retreat-89844.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-Type': 'application/json'

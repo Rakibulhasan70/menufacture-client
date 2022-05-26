@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const UsePayment = id => {
     const [payment, setPayment] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/myorder/${id}`
+        const url = `https://cryptic-retreat-89844.herokuapp.com/myorder/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

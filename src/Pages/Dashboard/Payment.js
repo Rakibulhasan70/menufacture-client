@@ -10,7 +10,7 @@ const Payment = () => {
     const { id } = useParams()
     const [payment, setPayment] = useState([])
     useEffect(() => {
-        const url = `http://localhost:5000/myorder/order/${id}`
+        const url = `https://cryptic-retreat-89844.herokuapp.com/myorder/order/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

@@ -25,7 +25,7 @@ const AddProduct = () => {
         console.log(product);
 
 
-        const url = 'http://localhost:5000/part';
+        const url = 'https://cryptic-retreat-89844.herokuapp.com/part';
         fetch(url, {
             method: 'POST',
             headers: {

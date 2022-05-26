@@ -13,7 +13,7 @@ const MyOrder = () => {
     useEffect(() => {
 
         const run = async () => {
-            await axios.get(`http://localhost:5000/myorder/${email}`)
+            await axios.get(`https://cryptic-retreat-89844.herokuapp.com/myorder/${email}`)
                 .then(function (res) {
                     setProduct(res.data)
                 })
@@ -26,7 +26,7 @@ const MyOrder = () => {
     const [deleting, setDeleting] = useState(null)
     const [productss, setProducts] = UseOrder()
     const handleDeleteBtn = id => {
-        const url = `http://localhost:5000/myorder/${id}`
+        const url = `https://cryptic-retreat-89844.herokuapp.com/myorder/${id}`
         console.log(url);
         fetch(url, {
             method: "DELETE"

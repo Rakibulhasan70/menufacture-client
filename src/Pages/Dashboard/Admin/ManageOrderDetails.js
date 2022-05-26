@@ -9,7 +9,7 @@ const ManageOrderDetails = (props) => {
 
     const [products, setProducts] = UsePart()
     const handleDeleteBtn = id => {
-        const url = `http://localhost:5000/part/${id}`
+        const url = `https://cryptic-retreat-89844.herokuapp.com/part/${id}`
         console.log(url);
         fetch(url, {
             method: "DELETE"
