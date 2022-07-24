@@ -42,4 +42,4 @@ const Dasboard = () => {
     );
 };
 
-export default Dasboard; <h2>Dashboard</h2>
+export default Dasboard;

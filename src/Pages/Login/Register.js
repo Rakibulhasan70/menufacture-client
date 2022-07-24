@@ -45,6 +45,7 @@ const Register = () => {
         console.log('update done');
         navigate('/home')
     };
+
     return (
         <div>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 px-12 justify-center items-center">

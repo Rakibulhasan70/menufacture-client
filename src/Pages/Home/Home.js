@@ -8,13 +8,15 @@ import Reviews from './Reviews';
 
 const Home = () => {
     return (
-        <div className='lg:px-12 w-full'>
+        <div>
             <Banner></Banner>
-            <Parts></Parts>
-            <BussinessSummery></BussinessSummery>
-            <Reviews></Reviews>
-            <Query></Query>
-            <EidOffer></EidOffer>
+            <div className='lg:px-12 w-full'>
+                <Parts></Parts>
+                <BussinessSummery></BussinessSummery>
+                <Reviews></Reviews>
+                <Query></Query>
+                <EidOffer></EidOffer>
+            </div>
         </div>
     );
 };

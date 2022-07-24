@@ -17,7 +17,7 @@ const Part = (props) => {
                     <p>Order-Quantity: {order}</p>
                     <p>Avaliable-Quantity: {availableOrder}</p>
                     <p>Per Price: ${price}</p>
-                    <div className="card-actions justify-center mt-3">
+                    <div className="card-actions  mt-3">
                         <button onClick={() => handleNavigate(_id)} className="btn btn-primary">Buy Now</button>
                     </div>
                 </div>
