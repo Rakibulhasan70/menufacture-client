@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const UseCardDetails = carId => {
     const [car, setCar] = useState([]);
     useEffect(() => {
-        const url = `https://cryptic-retreat-89844.herokuapp.com/part/${carId}`
+        const url = `https://menufacture-server.onrender.com/part/${carId}`
         fetch(url)
             .then(res => res.json())
             .then(data => {

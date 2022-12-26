@@ -8,7 +8,7 @@ const AddReview = () => {
     const navigate = useNavigate()
     const onSubmit = data => {
 
-        const url = 'https://cryptic-retreat-89844.herokuapp.com/review';
+        const url = 'https://menufacture-server.onrender.com/review';
         fetch(url, {
             method: 'POST',
             headers: {

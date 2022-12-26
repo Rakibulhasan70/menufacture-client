@@ -4,11 +4,11 @@ import Loading from '../../Shared/Loading';
 const ManageOrders = () => {
     const [products, setProducts] = useState([])
     useEffect(() => {
-        fetch('https://cryptic-retreat-89844.herokuapp.com/manageorder')
+        fetch('https://menufacture-server.onrender.com/manageorder')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
-    // const { data: products, isLoading } = useQuery('products', () => fetch('https://cryptic-retreat-89844.herokuapp.com/manageorder')
+    // const { data: products, isLoading } = useQuery('products', () => fetch('https://menufacture-server.onrender.com/manageorder')
     //     .then(res => res.json()))
 
     // if (isLoading) {
@@ -25,7 +25,7 @@ const ManageOrders = () => {
     const handleDeleteBtn = id => {
         const procced = window.confirm('Are you sure for delete ??')
         if (procced) {
-            const url = `https://cryptic-retreat-89844.herokuapp.com/manageorder/${id}`
+            const url = `https://menufacture-server.onrender.com/manageorder/${id}`
             console.log(url);
             fetch(url, {
                 method: "DELETE"

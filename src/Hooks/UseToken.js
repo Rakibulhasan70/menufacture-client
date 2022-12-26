@@ -6,7 +6,7 @@ const UseToken = user => {
         const email = user?.user?.email
         const currentUser = { email: email }
         if (email) {
-            fetch(`https://cryptic-retreat-89844.herokuapp.com/user/${email}`, {
+            fetch(`https://menufacture-server.onrender.com/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'

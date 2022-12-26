@@ -25,7 +25,7 @@ const AddProduct = () => {
         console.log(product);
 
 
-        const url = 'https://cryptic-retreat-89844.herokuapp.com/part';
+        const url = 'https://menufacture-server.onrender.com/part';
         fetch(url, {
             method: 'POST',
             headers: {

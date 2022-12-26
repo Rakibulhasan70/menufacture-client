@@ -19,7 +19,7 @@ const ChecjoutForm = (props) => {
 
     useEffect(() => {
         if (price) {
-            fetch('https://cryptic-retreat-89844.herokuapp.com/create-payment-intent', {
+            fetch('https://menufacture-server.onrender.com/create-payment-intent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -86,7 +86,7 @@ const ChecjoutForm = (props) => {
                 appointment: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://cryptic-retreat-89844.herokuapp.com/myorder/${_id}`, {
+            fetch(`https://menufacture-server.onrender.com/myorder/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

@@ -4,7 +4,7 @@ import MakeAdminRow from './MakeAdminRow';
 const MakeAdmin = () => {
     const [makeAdmins, setMakeAdmins] = useState([])
     useEffect(() => {
-        fetch('https://cryptic-retreat-89844.herokuapp.com/user')
+        fetch('https://menufacture-server.onrender.com/user')
             .then(res => res.json())
             // .then(data=>setReviews(data))
             .then(data => setMakeAdmins(data))

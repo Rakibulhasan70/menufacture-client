@@ -6,13 +6,13 @@ import ManageOrderDetails from './ManageOrderDetails';
 const ManagProducts = () => {
     const [parts, setParts] = useState([])
     useEffect(() => {
-        fetch('https://cryptic-retreat-89844.herokuapp.com/part')
+        fetch('https://menufacture-server.onrender.com/part')
             .then(res => res.json())
             .then(data => setParts(data))
     }, [parts, setParts])
 
 
-    // const { data: parts, isLoading } = useQuery('parts', () => fetch('https://cryptic-retreat-89844.herokuapp.com/part')
+    // const { data: parts, isLoading } = useQuery('parts', () => fetch('https://menufacture-server.onrender.com/part')
     //     .then(res => res.json()))
 
     // if (isLoading) {

@@ -10,7 +10,7 @@ const Payment = () => {
     const { id } = useParams()
     const [payment, setPayment] = useState([])
     useEffect(() => {
-        const url = `https://cryptic-retreat-89844.herokuapp.com/myorder/order/${id}`
+        const url = `https://menufacture-server.onrender.com/myorder/order/${id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -23,7 +23,6 @@ const Payment = () => {
 
     return (
         <div className='lg:w-1/2 mx-auto'>
-
             <div className="card w-full max-w-md bg-base-100 shadow-xl my-12 ">
                 <div className="card-body">
                     <p className="text-success font-bold">Hello , {payment.name}</p>
@@ -37,7 +36,6 @@ const Payment = () => {
                         <ChecjoutForm
                             payment={payment}
                         >
-
                         </ChecjoutForm>
                     </Elements>
                 </div>

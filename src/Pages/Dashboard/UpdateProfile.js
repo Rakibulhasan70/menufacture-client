@@ -27,7 +27,7 @@ const UpdateProfile = () => {
             ...info, email: email
         }
 
-        const url = `https://cryptic-retreat-89844.herokuapp.com/myprofile/${id}`
+        const url = `https://menufacture-server.onrender.com/myprofile/${id}`
         fetch(url, {
             method: 'PUT',
             headers: {

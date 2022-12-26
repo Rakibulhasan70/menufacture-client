@@ -27,7 +27,7 @@ const MyProfile = () => {
             ...info, email: email
         }
 
-        await axios.post('https://cryptic-retreat-89844.herokuapp.com/myprofile', newInfo)
+        await axios.post('https://menufacture-server.onrender.com/myprofile', newInfo)
             .then(function (res) {
                 if (res?.data?.insertedId) {
                     toast('Save Information')
@@ -42,7 +42,7 @@ const MyProfile = () => {
     useEffect(() => {
 
         const run = async () => {
-            await axios.get(`https://cryptic-retreat-89844.herokuapp.com/myprofile/${email}`)
+            await axios.get(`https://menufacture-server.onrender.com/myprofile/${email}`)
                 .then(function (res) {
                     setProfile(res.data)
                 })

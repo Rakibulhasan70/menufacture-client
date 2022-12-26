@@ -5,11 +5,11 @@ import UsePart from '../../../Hooks/UsePart';
 const ManageOrderDetails = (props) => {
     const { _id, name, img, description, order, availableOrder, price } = props.part
 
+    const [products, setProducts] = UsePart()
     const [deleting, setDeleting] = useState(null)
 
-    const [products, setProducts] = UsePart()
     const handleDeleteBtn = id => {
-        const url = `https://cryptic-retreat-89844.herokuapp.com/part/${id}`
+        const url = `https://menufacture-server.onrender.com/part/${id}`
         console.log(url);
         fetch(url, {
             method: "DELETE"

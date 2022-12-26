@@ -4,7 +4,7 @@ import Part from './Part';
 const Parts = () => {
     const [parts, setParts] = useState([])
     useEffect(() => {
-        fetch('https://cryptic-retreat-89844.herokuapp.com/part')
+        fetch('https://menufacture-server.onrender.com/part')
             .then(res => res.json())
             .then(data => setParts(data))
     }, [])

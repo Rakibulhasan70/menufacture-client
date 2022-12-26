@@ -28,7 +28,7 @@ const Purches = () => {
             toast.error(`You have to purchase maximum ${car.availableOrder} products and at least ${car.order} order`)
         }
 
-        const url = `https://cryptic-retreat-89844.herokuapp.com/part/${carId}`
+        const url = `https://menufacture-server.onrender.com/part/${carId}`
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -71,7 +71,7 @@ const Purches = () => {
         const newProduct = {
             ...product, email: email
         }
-        await axios.post('https://cryptic-retreat-89844.herokuapp.com/addItem', newProduct)
+        await axios.post('https://menufacture-server.onrender.com/addItem', newProduct)
             .then(function (res) {
                 if (res?.data?.insertedId) {
                     toast('Purches is done')
